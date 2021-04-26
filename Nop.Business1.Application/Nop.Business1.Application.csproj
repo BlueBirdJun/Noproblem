@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Nop.BackEnd.Nuget\Nop.BackEnd.Nuget.csproj" />
+    <ProjectReference Include="..\Nop.Common\Nop.Common.csproj" />
+    <ProjectReference Include="..\Nop.Domain\Nop.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Handlers\" />
+  </ItemGroup>
+
+</Project>

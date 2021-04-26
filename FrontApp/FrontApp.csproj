@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Nop.Common\Nop.Common.csproj" />
+    <ProjectReference Include="..\Nop.Front.Nuget\Nop.Front.Nuget.csproj" />
+  </ItemGroup>
+
+</Project>
