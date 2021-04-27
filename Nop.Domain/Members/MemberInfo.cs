@@ -17,6 +17,7 @@ namespace Nop.Domain.Members
         public string Address2 { get; set; }
 
         public string Memo { get; set; }
+        public string Password { get; set; }
 
     }
 }

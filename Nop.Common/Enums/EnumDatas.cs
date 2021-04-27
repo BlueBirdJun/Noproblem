@@ -8,7 +8,7 @@ namespace Nop.Common.Enums
 {
     public enum ConnectionDBNames
     {
-        Log, Temp
+        Log, Temp,NOP
     }
 
     public enum HttpMethods

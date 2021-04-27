@@ -9,13 +9,27 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="values.Development.json" />
+    <None Include="values.Development.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Nop.Api.Business1\Nop.Api.Business1.csproj" />
     <ProjectReference Include="..\Nop.BackEnd.Nuget\Nop.BackEnd.Nuget.csproj" />
     <ProjectReference Include="..\Nop.Common\Nop.Common.csproj" />
+    <ProjectReference Include="..\Nop.Repository\Nop.Repository.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="values.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
   </ItemGroup>
 
 </Project>

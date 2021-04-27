@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace Nop.Common.Interfaces
 {
-    public interface IResultModel
+    public interface IResultModelGeneric<T, S>
     {
         bool Success { get; set; }
         string Code { get; set; }
         bool HasAlert { get; set; }
         bool HasError { get; set; }
-        Object InputValue { get; set; }
+        S InputValue { get; set; }
         string Message { get; set; }
-        Object OutPutValue { get; set; }
+        T OutPutValue { get; set; }
     }
 }

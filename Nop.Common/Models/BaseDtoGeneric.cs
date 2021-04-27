@@ -1,15 +1,15 @@
-﻿using System;
+﻿using Nop.Common.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Nop.Common.Interfaces;
 
 namespace Nop.Common.Models
 {
-    public class BaseDto : IResultModel
+    public class BaseDtoGeneric<T, S> : IResultModelGeneric<T, S>
     {
-        public BaseDto()
+        public BaseDtoGeneric()
         {
             this.HasAlert = false;
             this.HasError = false;
@@ -25,8 +25,8 @@ namespace Nop.Common.Models
         public string SystemMessage { get; set; }
 
         public string Code { get; set; }
-        public Object InputValue { get; set; }
-        public Object OutPutValue { get; set; }
+        public S InputValue { get; set; }
+        public T OutPutValue { get; set; }
 
 
         public void AlertMessage(string mes)

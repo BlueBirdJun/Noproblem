@@ -9,6 +9,7 @@ namespace Nop.Domain.Commons
     public class CommonCodes : BaseModel
     {
         public string Code { get; set; }
+        public string Group { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
     }

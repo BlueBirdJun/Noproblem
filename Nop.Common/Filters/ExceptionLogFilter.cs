@@ -51,7 +51,7 @@ namespace Nop.Common.Filters
             if (exception.Message.Equals("Object reference not set to an instance of an object."))
                 rm.Message = "Api Parameter Error";//exception.Message;
             else
-                rm.Message = "Server Error";//exception.Message;             
+                rm.Message = exception.Message;//"Server Error";//exception.Message;             
             _logger.LogError(msg);
             context.HttpContext.Response.StatusCode = 500;
             context.Result = new JsonResult(rm);
