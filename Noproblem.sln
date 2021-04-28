@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31205.134
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrontApp", "FrontApp\FrontApp.csproj", "{A34EC0F0-9626-4FDB-982E-84D8795A6598}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FrontApp", "FrontApp\FrontApp.csproj", "{A34EC0F0-9626-4FDB-982E-84D8795A6598}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0_Document", "0_Document", "{D035ADE3-7430-4FC5-9BB3-E2A035A7F789}"
 EndProject
@@ -19,35 +19,37 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "6_Test", "6_Test", "{3EC82B
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "7_Sandbox", "7_Sandbox", "{B9D4E66C-6314-4B6A-AA94-A0657537760A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nop.Common", "Nop.Common\Nop.Common.csproj", "{6BEB1FC1-DE78-4BE8-9F61-6BC0CAA43C09}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nop.Common", "Nop.Common\Nop.Common.csproj", "{6BEB1FC1-DE78-4BE8-9F61-6BC0CAA43C09}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nop.BackEnd.Nuget", "Nop.BackEnd.Nuget\Nop.BackEnd.Nuget.csproj", "{BF235B09-83E6-4577-A410-548B9C2C409A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nop.BackEnd.Nuget", "Nop.BackEnd.Nuget\Nop.BackEnd.Nuget.csproj", "{BF235B09-83E6-4577-A410-548B9C2C409A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nop.Front.Nuget", "Nop.Front.Nuget\Nop.Front.Nuget.csproj", "{47AFCA63-8DA4-4CFB-90E5-3418E6A518D4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nop.Front.Nuget", "Nop.Front.Nuget\Nop.Front.Nuget.csproj", "{47AFCA63-8DA4-4CFB-90E5-3418E6A518D4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4_Application", "4_Application", "{9CD722DC-971D-4132-B3B3-857CBF5E4FAE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business1", "Business1", "{ACD6945B-E938-48B9-A6C3-CE38A596DB41}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nop.GateWay", "Nop.GateWay\Nop.GateWay.csproj", "{7BD731B0-2ADD-4BF9-91BA-67B8B0C8F833}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nop.GateWay", "Nop.GateWay\Nop.GateWay.csproj", "{7BD731B0-2ADD-4BF9-91BA-67B8B0C8F833}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nop.Api.Business1", "Nop.Api.Business1\Nop.Api.Business1.csproj", "{1FCF05CC-0843-4CAA-ABC8-DD7C501F86A2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nop.Api.Business1", "Nop.Api.Business1\Nop.Api.Business1.csproj", "{1FCF05CC-0843-4CAA-ABC8-DD7C501F86A2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nop.Business1.Application", "Nop.Business1.Application\Nop.Business1.Application.csproj", "{4C928714-F863-4F3F-B921-86DA747AEBA3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nop.Business1.Application", "Nop.Business1.Application\Nop.Business1.Application.csproj", "{4C928714-F863-4F3F-B921-86DA747AEBA3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nop.Domain", "Nop.Domain\Nop.Domain.csproj", "{12D91799-07FF-4EE0-B5E9-36782F8F92D9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nop.Domain", "Nop.Domain\Nop.Domain.csproj", "{12D91799-07FF-4EE0-B5E9-36782F8F92D9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nop.RootApi", "Nop.RootApi\Nop.RootApi.csproj", "{1221466B-4AFD-46C7-884E-4BFD2FEC7BF2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nop.RootApi", "Nop.RootApi\Nop.RootApi.csproj", "{1221466B-4AFD-46C7-884E-4BFD2FEC7BF2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{182EFB88-ECCA-4053-AE9B-396586C86744}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{D46D71B7-AC9F-4E63-96BB-511C6D752FE6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nop.Front.Common", "Nop.Front.Common\Nop.Front.Common.csproj", "{B10BF5F0-0FA8-40BB-BCD3-0FFE7A5747A9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nop.Front.Common", "Nop.Front.Common\Nop.Front.Common.csproj", "{B10BF5F0-0FA8-40BB-BCD3-0FFE7A5747A9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nop.Repository", "Nop.Repository\Nop.Repository.csproj", "{E000B6BF-EABA-4A41-BECA-D4008B88D4FD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nop.Repository", "Nop.Repository\Nop.Repository.csproj", "{E000B6BF-EABA-4A41-BECA-D4008B88D4FD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "testcon", "testcon\testcon.csproj", "{561AD13E-0408-4099-BF0A-FCF3A7D33F7D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "testcon", "testcon\testcon.csproj", "{561AD13E-0408-4099-BF0A-FCF3A7D33F7D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nop.Front.Application", "Nop.Front.Application\Nop.Front.Application.csproj", "{B851714F-EFDF-4175-B81E-F9AE2181F997}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -103,6 +105,10 @@ Global
 		{561AD13E-0408-4099-BF0A-FCF3A7D33F7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{561AD13E-0408-4099-BF0A-FCF3A7D33F7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{561AD13E-0408-4099-BF0A-FCF3A7D33F7D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B851714F-EFDF-4175-B81E-F9AE2181F997}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B851714F-EFDF-4175-B81E-F9AE2181F997}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B851714F-EFDF-4175-B81E-F9AE2181F997}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B851714F-EFDF-4175-B81E-F9AE2181F997}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -120,9 +126,10 @@ Global
 		{1221466B-4AFD-46C7-884E-4BFD2FEC7BF2} = {ACD6945B-E938-48B9-A6C3-CE38A596DB41}
 		{182EFB88-ECCA-4053-AE9B-396586C86744} = {79E51A29-661E-431F-BA3C-3569C7F068EC}
 		{D46D71B7-AC9F-4E63-96BB-511C6D752FE6} = {5C6CC019-3BA0-4778-A5F9-F6726E84AE17}
-		{B10BF5F0-0FA8-40BB-BCD3-0FFE7A5747A9} = {5C6CC019-3BA0-4778-A5F9-F6726E84AE17}
+		{B10BF5F0-0FA8-40BB-BCD3-0FFE7A5747A9} = {D46D71B7-AC9F-4E63-96BB-511C6D752FE6}
 		{E000B6BF-EABA-4A41-BECA-D4008B88D4FD} = {3CBF20BE-3956-4F48-BF51-8D65E1728F28}
 		{561AD13E-0408-4099-BF0A-FCF3A7D33F7D} = {B9D4E66C-6314-4B6A-AA94-A0657537760A}
+		{B851714F-EFDF-4175-B81E-F9AE2181F997} = {5C6CC019-3BA0-4778-A5F9-F6726E84AE17}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E855296D-49AD-4E0C-9B63-49306507AACA}
