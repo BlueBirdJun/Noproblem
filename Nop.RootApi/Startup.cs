@@ -90,6 +90,7 @@ namespace Nop.RootApi
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Nop.RootApi", Version = "v1" });
+                c.CustomSchemaIds(x => x.FullName);
             });
 
             var valuesString = File.ReadAllText(Configuration.GetValue<string>("ConnectionStringPaths:values"));

@@ -15,5 +15,6 @@ namespace Nop.Common.Interfaces
         Object InputValue { get; set; }
         string Message { get; set; }
         Object OutPutValue { get; set; }
+        List<string> ListMessage { get; set; }
     }
 }

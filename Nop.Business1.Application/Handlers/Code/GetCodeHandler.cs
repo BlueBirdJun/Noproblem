@@ -55,7 +55,6 @@ namespace Nop.Business1.Application.Handlers.Code
                 try
                 {
                     var lst = await _nop.Commoncodes.ToListAsync();
-                     
                         
                     dt.OutPutValue = _mapper.Map<List<Domain.Commons.CommonCodes>>(lst);
                     dt.Success = true;

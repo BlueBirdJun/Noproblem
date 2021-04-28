@@ -9,7 +9,7 @@ namespace Nop.Domain.Members
     public class LoginModel
     {
         public string UserId { get; set; }
-        public string PassWord { get; set; }
+        public string Password { get; set; }
 
         public string UserIP { get; set; }
         public DateTime ReqeustTime { get; set; }

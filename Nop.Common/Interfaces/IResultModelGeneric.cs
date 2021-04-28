@@ -14,6 +14,7 @@ namespace Nop.Common.Interfaces
         bool HasError { get; set; }
         S InputValue { get; set; }
         string Message { get; set; }
+        List<string> ListMessage { get; set; }
         T OutPutValue { get; set; }
     }
 }

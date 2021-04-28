@@ -21,6 +21,7 @@ namespace Nop.Common.Models
         public bool HasAlert { get; set; }
         public bool HasError { get; set; }
         public string Message { get; set; }
+        public List<string> ListMessage { get; set; }
 
         public string SystemMessage { get; set; }
 

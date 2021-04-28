@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 
 namespace Nop.Api.Business1.Controllers
 {
+    [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]
     public class MemberController : ExtensionContoroller
@@ -36,10 +37,24 @@ namespace Nop.Api.Business1.Controllers
         public async Task<IActionResult> LoginTest()
         {
             AddMemberHandler.Query data = new AddMemberHandler.Query();
-            data.login = new Domain.Members.LoginModel();
+            //data.login = new Domain.Members.LoginModel();
 
             var rt = await _mediator.Send(data);
             return Ok(rt);
+        }
+
+        [HttpPost]
+        public async Task<AddMemberHandler.Result> AddMember([FromBody]AddMemberHandler.Query data)
+        {
+            var rt = await _mediator.Send(data);
+            return rt;
+        }
+
+        [HttpPost("login")]
+        public async Task<LoginHandler.Result> LoginMember([FromBody] LoginHandler.Query data)
+        {
+            var rt = await _mediator.Send(data);
+            return rt;
         }
 
     }

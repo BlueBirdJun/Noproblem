@@ -8,7 +8,7 @@ namespace Nop.Domain.Members
 {
     public class MemberInfo :BaseModel
     {
-        public string UID { get; set; }
+        public string UserId { get; set; }
         public string Name { get; set; }
 
         public string BirthDay { get; set; }
