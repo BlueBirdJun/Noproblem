@@ -1,0 +1,151 @@
+﻿@page "/resister"
+@using Nop.Domain.Members
+@inject IJSRuntime _jsRuntime
+@inject NavigationManager NavigationManager
+
+<style>
+    form .row {
+        margin-bottom: 16px;
+    }
+</style>
+
+
+
+<h1>회원가입</h1>
+
+@if (!Loading)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <RadzenTemplateForm Data="@loginmodel" Submit="@((MemberInfo args) => { ResisterMember(args); })">
+
+        <div class="row">
+            <div class="align-items-center d-flex col-md-3">
+                <RadzenLabel Text="아이디" />
+            </div>
+            <div class="col">
+                <RadzenTextBox Placeholder="6자이상 10자이하" style="width: 100%;" Name="UserId" @bind-Value=@loginmodel.UserId />
+                <br />
+                <RadzenRequiredValidator Component="UserId" Text="아이디 입력해주세요" Popup=@popup Style="position: absolute" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="align-items-center d-flex col-md-3">
+                <RadzenLabel Text="비밀번호" />
+            </div>
+            <div class="col-md-9">
+                <RadzenPassword Placeholder="6자이상 10자이하" style="width: 100%;" Name="Password" @bind-Value=@loginmodel.Password />
+                <br />
+                <RadzenRequiredValidator Component="Password" Text="비밀번호 입력해주세요" Popup=@popup Style="position: absolute" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="align-items-center d-flex col-md-3">
+                <RadzenLabel Text="이름" />
+            </div>
+            <div class="col-md-9">
+                <RadzenTextBox Placeholder="6자이상 10자이하" style="width: 100%;" Name="Name" @bind-Value=@loginmodel.Name />
+                <br />
+                <RadzenRequiredValidator Component="Password" Text="이름 입력해주세요" Popup=@popup Style="position: absolute" />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="align-items-center d-flex col-md-3">
+                <RadzenLabel Text="생일" />
+            </div>
+            <div class="col-md-9">
+                <RadzenDatePicker @bind-Value=@value DateFormat="d" Change=@(args => OnChange(args, "DatePicker", format)) />
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="align-items-center d-flex col-md-3">
+                <RadzenLabel Text="주소" />
+            </div>
+            <div class="col-md-9">
+                <RadzenTextBox Placeholder="50자이하" style="width: 100%;" Name="Name" @bind-Value=@loginmodel.Address1 />
+                <br />
+                <RadzenTextBox Placeholder="50자이하" style="width: 100%;" Name="Name" @bind-Value=@loginmodel.Address2 />
+            </div>
+        </div>
+        <div class="row">
+            <div class="align-items-center d-flex col-md-3">
+                <RadzenLabel Text="하고싶은말" />
+            </div>
+            <div class="col-md-9">
+                <RadzenTextArea @bind-Value=@loginmodel.Memo Cols="100" Rows="3" />
+
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-12 d-flex align-items-end justify-content-center" style="margin-top: 16px;">
+                <RadzenButton ButtonType="ButtonType.Submit" Icon="save" Text="Save" />
+                <RadzenButton ButtonStyle="ButtonStyle.Light" Icon="cancel" style="display: inline-block; margin-left: 10px;" Text="Cancel" Click="@Cancel" />
+            </div>
+        </div>
+
+        <div class="col">
+            <label>
+
+                <RadzenCheckBox @bind-Value=@popup></RadzenCheckBox>
+            </label>
+        </div>
+        <div class="col-md-6">
+            <EventConsole @ref=@console />
+        </div>
+    </RadzenTemplateForm>
+
+}
+
+
+
+@code {
+    private MemberInfo loginmodel = new MemberInfo();
+    private bool Loading = true;
+    string format = "yyyy-MM-dd";
+    bool popup;
+    DateTime? value = DateTime.Now.AddDays(-1 * (365 * 20));
+    EventConsole console;
+
+    protected override async Task OnInitializedAsync()
+    {
+        loginmodel.BirthDay = value?.ToString(format);
+    }
+
+    private async void ResisterMember(MemberInfo args)
+    {
+        try
+        {
+
+            //args.UserId = "cccㄹㄹc";
+            console.Log($"{loginmodel.BirthDay}");
+        }
+        catch (Exception exc)
+        {
+
+        }
+    }
+
+    void OnChange(DateTime? value, string name, string format)
+    {
+        console.Log("날짜이벤트");
+        loginmodel.BirthDay = value?.ToString(format);
+        console.Log($"{name} value changed to {value?.ToString(format)}");
+    }
+
+
+    private async void Cancel()
+    {
+        try
+        {
+            NavigationManager.NavigateTo("/");
+        }
+        catch (Exception exc)
+        {
+
+        }
+    }
+}

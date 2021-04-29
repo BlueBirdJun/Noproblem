@@ -1,0 +1,85 @@
+﻿@page "/login"
+@using Nop.Domain.Members
+@inject IJSRuntime _jsRuntime
+@inject NavigationManager NavigationManager
+
+<h3>로그인</h3>
+<RadzenTemplateForm Data="@loginmodel" Submit="@((LoginModel args) => { LoginMember(args); })">
+    <div class="row">
+        <div class="align-items-center d-flex col-md-3">
+            <RadzenLabel Text="아이디" />
+        </div>
+        <div class="col">
+            <RadzenTextBox Placeholder="6자이상 10자이하" style="width: 100%;" Name="UserId" @bind-Value=@loginmodel.UserId />
+            <br />
+            <RadzenRequiredValidator Component="UserId" Text="아이디 입력해주세요" Popup=@popup Style="position: absolute" />
+        </div>
+    </div>
+    <div class="row">
+        <div class="align-items-center d-flex col-md-3">
+            <RadzenLabel Text="비밀번호" />
+        </div>
+        <div class="col-md-9">
+            <RadzenPassword Placeholder="6자이상 10자이하" style="width: 100%;" Name="Password" @bind-Value=@loginmodel.Password />
+            <br />
+            <RadzenRequiredValidator Component="Password" Text="비밀번호 입력해주세요" Popup=@popup Style="position: absolute" />
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-12 d-flex align-items-end justify-content-center" style="margin-top: 16px;">
+            <RadzenButton ButtonType="ButtonType.Submit" Icon="login" Text="LOGIN" />
+            <RadzenButton ButtonStyle="ButtonStyle.Light" Icon="cancel" style="display: inline-block; margin-left: 10px;" Text="Cancel" Click="@Cancel" />
+        </div>
+    </div>
+    <div class="row justify-content-center">
+
+    </div>
+
+    <div class="col">
+        <label>
+
+            <RadzenCheckBox @bind-Value=@popup></RadzenCheckBox>
+        </label>
+    </div>
+    <div class="col-md-6">
+        <EventConsole @ref=@console />
+    </div>
+</RadzenTemplateForm>
+@code {
+    private LoginModel loginmodel = new LoginModel();
+    private bool Loading = true;
+    bool popup;
+    EventConsole console;
+
+    protected override async Task OnInitializedAsync()
+    {
+
+    }
+
+    private async void LoginMember(LoginModel args)
+    {
+        try
+        {
+
+            //args.UserId = "cccㄹㄹc";
+            //console.Log($"{loginmodel.BirthDay}");
+        }
+        catch (Exception exc)
+        {
+
+        }
+    }
+
+    private async void Cancel()
+    {
+        try
+        {
+            NavigationManager.NavigateTo("/");
+        }
+        catch (Exception exc)
+        {
+
+        }
+    }
+
+}

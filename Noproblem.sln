@@ -49,7 +49,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nop.Repository", "Nop.Repos
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "testcon", "testcon\testcon.csproj", "{561AD13E-0408-4099-BF0A-FCF3A7D33F7D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nop.Front.Application", "Nop.Front.Application\Nop.Front.Application.csproj", "{B851714F-EFDF-4175-B81E-F9AE2181F997}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nop.Front.Application", "Nop.Front.Application\Nop.Front.Application.csproj", "{B851714F-EFDF-4175-B81E-F9AE2181F997}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
