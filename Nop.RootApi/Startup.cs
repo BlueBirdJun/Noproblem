@@ -38,18 +38,13 @@ namespace Nop.RootApi
         public Startup(IConfiguration configuration, Microsoft.AspNetCore.Hosting.IHostingEnvironment environment)
         {
             _environment = environment;
-            Configuration = configuration;
-            
-           
+            Configuration = configuration; 
             Dapper.DefaultTypeMap.MatchNamesWithUnderscores = true;
         }  
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
-        { 
-            
-            //services.AddAutoMapper(typeof(Startup))
-            
+        {  
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>

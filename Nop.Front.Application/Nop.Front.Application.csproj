@@ -5,8 +5,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Nop.Common\Nop.Common.csproj" />
     <ProjectReference Include="..\Nop.Domain\Nop.Domain.csproj" />
+    <ProjectReference Include="..\Nop.Front.Common\Nop.Front.Common.csproj" />
+    <ProjectReference Include="..\Nop.Front.Nuget\Nop.Front.Nuget.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Handlers\Commons\" />
+    <Folder Include="Handlers\Boards\" />
   </ItemGroup>
 
 </Project>

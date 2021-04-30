@@ -17,6 +17,7 @@ namespace FrontApp.Services
                 Title="",
                 Path="/",
                 Icon="&#xe88a",
+                Tags=new string[]{"index"}               
             },
             new Menu()
             {
@@ -24,6 +25,7 @@ namespace FrontApp.Services
                 Path="/login",
                 Title="로그인",
                 Icon="&#xe94c",
+                Tags=new string[]{"login"}
             },
             new Menu()
             {
@@ -31,6 +33,7 @@ namespace FrontApp.Services
                 Path="/boards",
                 Title="게시판",
                 Icon="&#xe88a",
+                Tags=new string[]{"boards"}
             },
             new Menu()
             {
@@ -38,6 +41,7 @@ namespace FrontApp.Services
                 Path="/gallery",
                 Title="갤러리",
                 Icon="&#xe871",
+                Tags=new string[]{"gallery"}
             },
             new Menu()
             {
@@ -45,6 +49,7 @@ namespace FrontApp.Services
                 Title="회원가입",
                 Path="/resister",
                 Icon="&#xe037",
+                Tags=new string[]{"resister"} 
             }
         };
 
@@ -62,13 +67,21 @@ namespace FrontApp.Services
 
             Func<Menu, bool> filter = (example) => contains(example.Name) || (example.Tags != null && example.Tags.Any(contains));
 
-            return Menus.Where(category => category.Children != null && category.Children.Any(filter))
-                           .Select(category => new Menu()
-                           {
-                               Name = category.Name,
-                               Expanded = true,
-                               Children = category.Children.Where(filter).ToArray()
-                           }).ToList();
+            return Menus.Where(p=>p.Name.ToLower().Contains(term.ToLower()))
+                          .Select(p => new Menu()
+                          {
+                              Name = p.Name,
+                              Expanded = true,
+                              //Children = category.Children.Where(filter).ToArray()
+                          }).ToList();
+
+            //return Menus.Where(category => category.Children != null && category.Children.Any(filter))
+            //               .Select(category => new Menu()
+            //               {
+            //                   Name = category.Name,
+            //                   Expanded = true,
+            //                   Children = category.Children.Where(filter).ToArray()
+            //               }).ToList();
         }
 
         public Menu FindCurrent(Uri uri)

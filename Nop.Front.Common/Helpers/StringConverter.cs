@@ -2,7 +2,7 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace FrontApp.Helpers
+namespace Nop.Front.Common.Helpers
 {
     public class StringConverter : JsonConverter<string>
     {

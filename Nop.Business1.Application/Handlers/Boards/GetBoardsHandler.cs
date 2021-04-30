@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Nop.Common.Models;
+using Nop.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

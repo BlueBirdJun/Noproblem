@@ -1,14 +1,15 @@
 ﻿using Autofac;
 using AutoMapper;
+using FluentValidation;
+using FluentValidation.Results;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using Nop.Common.Helpers;
-using Nop.Common.Models;
-using Nop.Domain.Commons;
-using Nop.Repository;
+
+using Nop.Domain.Members;
 using Nop.Domain.Models;
-///using Nop.Repository.NopModels;
+using Nop.Front.Common.Helpers;
+using Nop.Front.Common.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,38 +17,32 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Nop.Business1.Application.Handlers.Code
+namespace Nop.Front.Application.Handlers.Members
 {
-    public class GetCodeHandler
+    public class ResisterHandler
     {
         public class Query : IRequest<Result>
         {
-
+            public MemberInfo data { get; set; }
         }
-        public class Result : BaseDtoGeneric<List<CommonCodes>, Query>
+
+        public class Result :BaseDto
         {
+            public BaseDtoGeneric<Domain.Members.MemberInfo, Query>  rtdata { get; set; }
         }
 
         public class Handler : IRequestHandler<Query, Result>
         {
-            private readonly ILogger<AddCodeHandler> _logger;
+            private readonly ILogger<ResisterHandler> _logger;
             private readonly ILifetimeScope _scope;
-            private readonly NopContext _nop;
-            private readonly IMediator _mediator;
-            private readonly IMapper _mapper;
-
-            public Handler(ILogger<AddCodeHandler> logger
-                , ILifetimeScope scope
-                , NopContext nop
-                , IMediator mediator
-                , IMapper mapper
-                )
+            private IHttpService _httpService;
+            public Handler(ILogger<ResisterHandler> logger
+                ,IHttpService httpService
+                , ILifetimeScope scope)
             {
                 _logger = logger;
                 _scope = scope;
-                _nop = nop;
-                _mediator = mediator;
-                _mapper = mapper;
+                _httpService = httpService;
             }
 
             public async Task<Result> Handle(Query req, CancellationToken cancellationToken)
@@ -55,12 +50,10 @@ namespace Nop.Business1.Application.Handlers.Code
                 Result dt = new Result();
                 try
                 {
-                    var lst = await _nop.Commoncodes.ToListAsync();
-                        
-                    dt.OutPutValue = _mapper.Map<List<Domain.Commons.CommonCodes>>(lst);
-                    dt.Success = true;
+                    var rt= await _httpService.Post<BaseDtoGeneric<Domain.Members.MemberInfo, Query>>(Constants.Resister, req.data);
+                    dt.rtdata = rt;
                 }
-                catch (Exception exc)
+                catch(Exception exc)
                 {
                     dt.Success = false;
                     dt.HasError = true;

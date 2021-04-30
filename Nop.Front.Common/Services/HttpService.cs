@@ -1,6 +1,6 @@
-﻿using FrontApp.Helpers;
-using Microsoft.AspNetCore.Components;
+﻿using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.Configuration;
+using Nop.Front.Common.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -11,19 +11,8 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace FrontApp.Services
+namespace Nop.Front.Common.Services
 {
-    public interface IHttpService
-    {
-        Task<T> Get<T>(string uri);
-        Task Post(string uri, object value);
-        Task<T> Post<T>(string uri, object value);
-        Task Put(string uri, object value);
-        Task<T> Put<T>(string uri, object value);
-        Task Delete(string uri);
-        Task<T> Delete<T>(string uri);
-    }
-
     public class HttpService : IHttpService
     {
         private HttpClient _httpClient;
@@ -34,7 +23,7 @@ namespace FrontApp.Services
         public HttpService(
             HttpClient httpClient,
             NavigationManager navigationManager,
-          //  ILocalStorageService localStorageService,
+            //  ILocalStorageService localStorageService,
             IConfiguration configuration
         )
         {

@@ -6,6 +6,7 @@ using Microsoft.Extensions.Logging;
 using Nop.Business1.Application.Handlers.Code;
 using Nop.Business1.Application.Handlers.Member;
 using Nop.Common.Extensions;
+using Nop.Domain.Members;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -44,9 +45,11 @@ namespace Nop.Api.Business1.Controllers
         }
 
         [HttpPost]
-        public async Task<AddMemberHandler.Result> AddMember([FromBody]AddMemberHandler.Query data)
+        public async Task<AddMemberHandler.Result> AddMember([FromBody] MemberInfo data)
         {
-            var rt = await _mediator.Send(data);
+            AddMemberHandler.Query senddata = new AddMemberHandler.Query();
+            senddata.data = data;
+            var rt = await _mediator.Send(senddata);
             return rt;
         }
 

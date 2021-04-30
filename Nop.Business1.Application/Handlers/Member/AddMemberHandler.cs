@@ -8,6 +8,7 @@ using Microsoft.Extensions.Logging;
 using Nop.Common.Helpers;
 using Nop.Common.Models;
 using Nop.Domain.Members;
+using Nop.Domain.Models;
 using Nop.Repository;
 using System;
 using System.Collections.Generic;

@@ -23,7 +23,6 @@ namespace Nop.RootApi
                 appjson = $"appsettings.{environmentName}.json";
                 conjson = $"values.{environmentName}.json";
             }
-
             var configuration = new ConfigurationBuilder()
                     .AddJsonFile(appjson)
                     .AddJsonFile(conjson)

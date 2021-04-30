@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Nop.Common.Interfaces;
 
-namespace Nop.Common.Models
+namespace Nop.Domain.Models
 {
     public class BaseDto : IResultModel
     {

@@ -2,6 +2,7 @@
 @using Nop.Domain.Members
 @inject IJSRuntime _jsRuntime
 @inject NavigationManager NavigationManager
+@inject IMediator _mediator;
 
 <style>
     form .row {
@@ -119,21 +120,34 @@ else
     {
         try
         {
-
-            //args.UserId = "cccㄹㄹc";
             console.Log($"{loginmodel.BirthDay}");
+            Nop.Front.Application.Handlers.Members.ResisterHandler.Query data = new Nop.Front.Application.Handlers.Members.ResisterHandler.Query();
+            data.data = loginmodel;
+            var rt = await _mediator.Send(data);
+            if(rt.rtdata.Success)
+            {
+                await _jsRuntime.InvokeVoidAsync("alert", $"{rt.rtdata.OutPutValue.Name}님 회원 가입에 성공했습니다.");
+                NavigationManager.NavigateTo("/login");
+            }
+            else
+            {
+                if(!rt.rtdata.ListMessage.Any())
+                    await _jsRuntime.InvokeVoidAsync("alert", $"{rt.rtdata.Message}");
+                else
+                    await _jsRuntime.InvokeVoidAsync("alert", $"{rt.rtdata.ListMessage[0]}");
+            }
         }
         catch (Exception exc)
         {
-
+            await _jsRuntime.InvokeVoidAsync("alert", exc.Message);
         }
     }
 
     void OnChange(DateTime? value, string name, string format)
     {
-        console.Log("날짜이벤트");
+        //console.Log("날짜이벤트");
         loginmodel.BirthDay = value?.ToString(format);
-        console.Log($"{name} value changed to {value?.ToString(format)}");
+        //console.Log($"{name} value changed to {value?.ToString(format)}");
     }
 
 
