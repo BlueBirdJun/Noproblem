@@ -54,9 +54,11 @@ namespace Nop.Api.Business1.Controllers
         }
 
         [HttpPost("login")]
-        public async Task<LoginHandler.Result> LoginMember([FromBody] LoginHandler.Query data)
+        public async Task<LoginHandler.Result> LoginMember([FromBody] LoginModel  data)
         {
-            var rt = await _mediator.Send(data);
+            LoginHandler.Query senddata = new LoginHandler.Query();
+            senddata.data = data;
+            var rt = await _mediator.Send(senddata);
             return rt;
         }
 

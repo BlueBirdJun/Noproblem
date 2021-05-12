@@ -9,5 +9,6 @@ namespace Nop.Front.Application
     public  class Constants
     {
         public const string Resister = "/api/Member";//회원 가입
+        public const string Login = "/api/Member/login";//회원 가입
     }
 }

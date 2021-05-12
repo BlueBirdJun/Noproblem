@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Rendering;
+using Nop.Front.Application.Services;
 using System;
 using System.Net;
 
@@ -11,25 +12,21 @@ namespace FrontApp.Helpers
     {
         [Inject]
         public NavigationManager NavigationManager { get; set; }
+        [Inject]
+        public IAccountService AccountService { get; set; }
+
         protected override void Render(RenderTreeBuilder builder)
         {
-            base.Render(builder);
-            return;
             var authorize = Attribute.GetCustomAttribute(RouteData.PageType, typeof(AuthorizeAttribute)) != null;
-
-            var returnUrl = WebUtility.UrlEncode(new Uri(NavigationManager.Uri).PathAndQuery);
-            NavigationManager.NavigateTo($"login?returnUrl={returnUrl}");
-
-            //var authorize = Attribute.GetCustomAttribute(RouteData.PageType, typeof(AuthorizeAttribute)) != null;
-            //if (authorize && AccountService.User == null)
-            //{
-            //    var returnUrl = WebUtility.UrlEncode(new Uri(NavigationManager.Uri).PathAndQuery);
-            //    NavigationManager.NavigateTo($"account/login?returnUrl={returnUrl}");
-            //}
-            //else
-            //{
-            //    base.Render(builder);
-            //}
+            if (authorize && AccountService.member == null)
+            {
+                var returnUrl = WebUtility.UrlEncode(new Uri(NavigationManager.Uri).PathAndQuery);
+                NavigationManager.NavigateTo($"login?returnUrl={returnUrl}");
+            }
+            else
+            {
+                base.Render(builder);
+            }
         }
 
     }

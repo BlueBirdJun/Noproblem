@@ -51,13 +51,13 @@ namespace Nop.Business1.Application.Handlers.Member
 
         public class Handler : IRequestHandler<Query, Result>
         {
-            private readonly ILogger<AddMemberHandler> _logger;
+            private readonly ILogger<LoginHandler> _logger;
             private readonly ILifetimeScope _scope;
             private readonly NopContext _nop;
             private readonly IMediator _mediator;
             private readonly IMapper _mapper;
 
-            public Handler(ILogger<AddMemberHandler> logger
+            public Handler(ILogger<LoginHandler> logger
                 , ILifetimeScope scope
                 , NopContext nop
                 , IMediator mediator

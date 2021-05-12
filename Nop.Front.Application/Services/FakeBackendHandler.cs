@@ -1,5 +1,6 @@
 ﻿using Nop.Domain.Members;
 using Nop.Front.Application.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -55,20 +56,21 @@ namespace Nop.Front.Application.Services
             async Task<HttpResponseMessage> authenticate()
             {
                 var bodyJson = await request.Content.ReadAsStringAsync();
-                var body = JsonSerializer.Deserialize<Login>(bodyJson);
-                var user = users.FirstOrDefault(x => x.Username == body.Username && x.Password == body.Password);
+                var body = JsonSerializer.Deserialize<MemberInfo>(bodyJson);
+                //var user = users.FirstOrDefault(x => x.Username == body.Username && x.Password == body.Password);
 
-                if (user == null)
-                    return await error("Username or password is incorrect");
-
-                return await ok(new
-                {
-                    Id = user.Id.ToString(),
-                    Username = user.Username,
-                    FirstName = user.FirstName,
-                    LastName = user.LastName,
-                    Token = "fake-jwt-token"
-                });
+                //if (user == null)
+                //    return await error("Username or password is incorrect");
+                return await ok(body);
+                //return await ok(new
+                //{
+                //    Id = body.UserId.ToString(),
+                //    Name = body.Name,
+                //    LoginTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm"),
+                //    //Password = body.Password,
+                //    idx = body.idx,
+                //    Token = "fake-jwt-token"
+                //});
             }
 
             async Task<HttpResponseMessage> register()

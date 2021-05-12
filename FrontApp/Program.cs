@@ -1,8 +1,10 @@
 using Autofac.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Nop.Front.Application.Services;
 using Serilog;
 using System;
 using System.Collections.Generic;
@@ -13,7 +15,7 @@ namespace FrontApp
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
             var environmentName = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
             string appjson = "appsettings.json";            
@@ -30,7 +32,10 @@ namespace FrontApp
             try
             {
                 Log.Warning("Start Front");
-                CreateHostBuilder(args).Build().Run();
+                var host = CreateHostBuilder(args).Build();//.Run();
+                //var accountservice = host.Services.GetRequiredService<IAccountService>();
+                //await accountservice.Initialize();
+                await host.RunAsync();
             }
             catch(Exception exc)
             {

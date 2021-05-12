@@ -27,7 +27,7 @@ else
                 <RadzenLabel Text="아이디" />
             </div>
             <div class="col">
-                <RadzenTextBox Placeholder="6자이상 10자이하" style="width: 100%;" Name="UserId" @bind-Value=@loginmodel.UserId />
+                <RadzenTextBox Placeholder="6자이상 10자이하" style="width: 100%;" Name="UserId" @bind-Value=@loginmodel.UserId    />
                 <br />
                 <RadzenRequiredValidator Component="UserId" Text="아이디 입력해주세요" Popup=@popup Style="position: absolute" />
             </div>
@@ -37,9 +37,9 @@ else
                 <RadzenLabel Text="비밀번호" />
             </div>
             <div class="col-md-9">
-                <RadzenPassword Placeholder="6자이상 10자이하" style="width: 100%;" Name="Password" @bind-Value=@loginmodel.Password />
+                <RadzenPassword Placeholder="6자이상 10자이하" style="width: 100%;" Name="Password" @bind-value=@loginmodel.Password   />
                 <br />
-                <RadzenRequiredValidator Component="Password" Text="비밀번호 입력해주세요" Popup=@popup Style="position: absolute" />
+                <RadzenRequiredValidator Component="Password" Text="비밀번호 입력해주세요"  Popup=@popup Style="position: absolute" />
             </div>
         </div>
         <div class="row">
@@ -47,6 +47,7 @@ else
                 <RadzenLabel Text="이름" />
             </div>
             <div class="col-md-9">
+                
                 <RadzenTextBox Placeholder="6자이상 10자이하" style="width: 100%;" Name="Name" @bind-Value=@loginmodel.Name />
                 <br />
                 <RadzenRequiredValidator Component="Password" Text="이름 입력해주세요" Popup=@popup Style="position: absolute" />
@@ -120,7 +121,10 @@ else
     {
         try
         {
-            console.Log($"{loginmodel.BirthDay}");
+            console.Log($"{loginmodel.Password}");
+
+            //bool confirmed = await _jsRuntime.InvokeAsync<bool>("confirm", "Are you sure?");
+
             Nop.Front.Application.Handlers.Members.ResisterHandler.Query data = new Nop.Front.Application.Handlers.Members.ResisterHandler.Query();
             data.data = loginmodel;
             var rt = await _mediator.Send(data);
@@ -131,15 +135,22 @@ else
             }
             else
             {
-                if(!rt.rtdata.ListMessage.Any())
+                if (!rt.rtdata.ListMessage.Any())
                     await _jsRuntime.InvokeVoidAsync("alert", $"{rt.rtdata.Message}");
                 else
                     await _jsRuntime.InvokeVoidAsync("alert", $"{rt.rtdata.ListMessage[0]}");
+                loginmodel.Password = "";
+
             }
+
         }
         catch (Exception exc)
         {
             await _jsRuntime.InvokeVoidAsync("alert", exc.Message);
+        }
+        finally
+        {
+            StateHasChanged();
         }
     }
 

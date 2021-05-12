@@ -2,6 +2,8 @@
 @using Nop.Domain.Members
 @inject IJSRuntime _jsRuntime
 @inject NavigationManager NavigationManager
+@inject IMediator _mediator;
+@inject IAccountService _account; 
 
 <h3>로그인</h3>
 <RadzenTemplateForm Data="@loginmodel" Submit="@((LoginModel args) => { LoginMember(args); })">
@@ -60,13 +62,19 @@
     {
         try
         {
+            Nop.Front.Application.Handlers.Members.LoginHandler.Query data = new Nop.Front.Application.Handlers.Members.LoginHandler.Query();
+            data.data = loginmodel;
+
+            var rt = await _mediator.Send(data);
+            console.Log(rt.rtdata.Message);
+            await _account.Login(rt.rtdata.OutPutValue);
 
             //args.UserId = "cccㄹㄹc";
             //console.Log($"{loginmodel.BirthDay}");
         }
         catch (Exception exc)
         {
-
+            console.Log($"{exc.Message}");
         }
     }
 

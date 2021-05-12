@@ -45,6 +45,8 @@ namespace FrontApp
             services.AddScoped<NotificationService>();
             services.AddScoped<TooltipService>();
             services.AddScoped<ContextMenuService>();
+            services.AddScoped<IAccountService,AccountService>();
+
             services.AddScoped<ILocalStorageService, LocalStorageService>();
             services.AddScoped(x =>
             {
@@ -82,7 +84,16 @@ namespace FrontApp
             services.AddLocalization();
             services.AddHealthChecks();
             services.AddMetrics();
+
+            //services.AddHostedService<StartAsyncService>();
+
             Nop.Front.Application.BootStrap boot = new Nop.Front.Application.BootStrap().SetContainerBuilder(services).RegMediator();
+
+            //services.BuildServiceProvider().GetRequiredService<IAccountService>().Initialize().ConfigureAwait().GetAwaiter();
+            //var scopeFactory = services
+            //        .BuildServiceProvider()
+            //        .GetRequiredService<IAccountService>();
+            //await scopeFactory.Initialize();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

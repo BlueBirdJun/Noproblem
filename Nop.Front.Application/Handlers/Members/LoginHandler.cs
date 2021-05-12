@@ -18,41 +18,42 @@ using System.Threading.Tasks;
 
 namespace Nop.Front.Application.Handlers.Members
 {
-    public class ResisterHandler
+    public class LoginHandler
     {
         public class Query : IRequest<Result>
         {
-            public MemberInfo data { get; set; }
+            public LoginModel data { get; set; }
         }
 
         public class Result :BaseDto
         {
-            public BaseDtoGeneric<Domain.Members.MemberInfo, Query>  rtdata { get; set; }
+            public BaseDtoGeneric<Domain.Members.MemberInfo, Query> rtdata { get; set; }
         }
-
         public class Handler : IRequestHandler<Query, Result>
         {
-            private readonly ILogger<ResisterHandler> _logger;
+            private readonly ILogger<LoginHandler> _logger;
             private readonly ILifetimeScope _scope;
             private IHttpService _httpService;
-            public Handler(ILogger<ResisterHandler> logger
-                ,IHttpService httpService
-                , ILifetimeScope scope)
+
+            public Handler(ILogger<LoginHandler> logger
+                , ILifetimeScope scope
+                 , IHttpService httpService)
             {
                 _logger = logger;
                 _scope = scope;
                 _httpService = httpService;
             }
-
             public async Task<Result> Handle(Query req, CancellationToken cancellationToken)
             {
                 Result dt = new Result();
                 try
                 {
-                    var rt= await _httpService.Post<BaseDtoGeneric<Domain.Members.MemberInfo, Query>>(Constants.Resister, req.data);
+                    var rt = await _httpService.Post<BaseDtoGeneric<Domain.Members.MemberInfo, Query>>(Constants.Login, req.data);
+                    
+                    
                     dt.rtdata = rt;
                 }
-                catch(Exception exc)
+                catch (Exception exc)
                 {
                     dt.Success = false;
                     dt.HasError = true;
@@ -61,7 +62,6 @@ namespace Nop.Front.Application.Handlers.Members
                 }
                 return dt;
             }
-
         }
     }
 }
